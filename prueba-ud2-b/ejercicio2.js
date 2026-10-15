@@ -1,3 +1,4 @@
+//GermánSantosMarichal
 /* =====================================================================
    Prueba UD2 · Versión B · Ejercicio 2 · Completa el código
    Desglose de un importe en billetes y monedas
@@ -22,26 +23,18 @@
                  cancelar -> 100 -> 2 de 50, 0 de 20, 0 de 10, 0 · 107,00
    ===================================================================== */
 'use strict';
-if (typeof prompt === 'undefined') { require('./_node-prompt.js'); } // solo actúa en Node
-
-const TIPO_IGIC = 0.07;
-
-// ----- a) y b) ENTRADA ----------------------------------------------------
-const importeTexto = prompt('Importe en euros (entero):') /* ① */ ; // '100' si cancela
-const importe = /* ② */ ;                                           // texto -> número
-
 // ----- c) CLÁUSULA DE GUARDA ----------------------------------------------
-if ( /* ③ */ ) {
+if (Number.isNaN(importe) || importe <= 0) {
   console.error('Error: el importe debe ser un número positivo.');
 } else {
   // ----- d) CÁLCULO --------------------------------------------------------
-  const billetes50 = /* ④ */ ;          // billetes de 50 completos
-  const restoTras50 = /* ⑤ */ ;         // lo que sobra tras los de 50
-  const billetes20 = /* ⑥ */ ;          // billetes de 20 completos
+  const billetes50 = Math.trunc(importe / 50);
+  const restoTras50 = importe % 50;
+  const billetes20 = Math.trunc(restoTras50 / 20);
   const restoTras20 = restoTras50 % 20;
   const billetes10 = Math.trunc(restoTras20 / 10);
-  const monedas = /* ⑦ */ ;             // lo que sobra tras los de 10
-  const conIgic = /* ⑧ */ ;             // importe + 7 %, dos decimales (texto)
+  const monedas = restoTras20 % 10;
+  const conIgic = (importe * (1 + TIPO_IGIC)).toFixed(2);
 
   // ----- e) SALIDA ---------------------------------------------------------
   console.log(`Importe: ${importe} € (con IGIC: ${conIgic} €)`);

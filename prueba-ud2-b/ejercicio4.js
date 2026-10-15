@@ -1,3 +1,4 @@
+//GermánSantosMarichal
 /* =====================================================================
    Prueba UD2 · Versión B · Ejercicio 4 · Amplía el código
    Mini consola con menú
@@ -77,7 +78,6 @@ function opcionSuma() {
 }
 
 // ----- a) ESCRIBE AQUÍ contarPasosCollatz(numero) -------------------------
-
 
 
 // ----- b) ESCRIBE AQUÍ opcionCollatz() ------------------------------------
